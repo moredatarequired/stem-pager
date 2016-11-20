@@ -2,7 +2,7 @@ import atexit
 import pickle
 import requests
 
-_DICTFILE = '.globedict.p'
+_DICTFILE = '.glosbedict.p'
 
 global _cache
 try:
@@ -25,7 +25,7 @@ def _clean_word(word):
     return ''.join(l for l in word.lower() if l in _keep_chars)
 
 def word_info(word):
-    'Get information on a word from GlobeAPI.'
+    'Get information on a word from GlosbeAPI.'
     global _cache
     word = _clean_word(word)
     if word in _cache:
@@ -36,15 +36,3 @@ def word_info(word):
         return None
     _cache[word] = r.json()
     return _cache[word]
-
-# def word_info(word):
-#     translations = []
-#     meanings = []
-#     if 'tuc' in result:
-#         for tuc in result['tuc']:
-#             if 'phrase' in tuc:
-#                 translations.append(tuc['phrase']['text'])
-#             if 'meanings' in tuc:
-#                 for meaning in tuc['meanings']:
-#                     meanings.append(meaning['text'])
-#     return translations, meanings
