@@ -2,3 +2,11 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+.DS_Store
+
+# Private credentials
+StratCheck-e68b63daace4.json
+
+gutenberg/
+texts/
